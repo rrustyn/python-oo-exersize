@@ -3,3 +3,12 @@ banana
 carrot
 dog
 elephant
+# Veggies
+
+kale
+parsnips
+
+# Fruits
+
+apple
+mango
