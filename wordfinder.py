@@ -2,7 +2,14 @@ from random import choice
 
 
 class WordFinder:
-    """Word Finder: finds random words from a dictionary."""
+    """Word Finder: finds random words from a dictionary.
+
+    >>> wf = WordFinder("./words.txt")
+    14 words read
+    >>> wf.random() in wf.word_list
+    True
+
+    """
 
     def __init__(self, filepath):
         """generates word list form filepath, and prints number of words"""

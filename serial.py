@@ -24,7 +24,7 @@ class SerialGenerator:
         self.start = self.current = start
 
     def __repr__(self):
-        return f"SerialGenerator: Start: {self.start} Current: {self.current}"
+        return f"SerialGenerator: Start: {self.start} Next: {self.current + 1}"
 
     def generate(self):
         """Increments current by one"""
