@@ -9,7 +9,7 @@ class WordFinder:
         self.filepath = filepath
         self.word_list = []
         self.read_file()
-        self.print_num_words()
+        print(f"{len(self.word_list)} words read")
 
     def read_file(self):
         """opens file, and appends word list from file"""
@@ -17,23 +17,20 @@ class WordFinder:
             for line in file:
                 self.word_list.append(line.removesuffix('\n'))
 
-    def print_num_words(self):
-        """ prints number of words"""
-        print(f"{len(self.word_list)} words read")
-
     def random(self):
         """returns a random word from word list"""
         return choice(self.word_list)
 
 
 class SpecialWordFinder(WordFinder):
+    """ takes away empty lines and comments from word list"""
+
     def __init__(self, filepath):
         super().__init__(filepath)
 
     def read_file(self):
         """opens file, and appends word list, if line is empty or
         starts with #, words will not be appended"""
-        with open(self.filepath, "r") as file:
-            for line in file:
-                if "#" not in line and line != '\n':
-                    self.word_list.append(line.removesuffix('\n'))
+        super().read_file()
+        self.word_list = [
+            word for word in self.word_list if "#" not in word and word != '']

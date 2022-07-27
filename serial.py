@@ -18,10 +18,10 @@ class SerialGenerator:
     100
     """
     # make two methods __init__ generate and reset
+
     def __init__(self, start):
         """Saving the start value and making an incrementer"""
-        self.start = start
-        self.current = start - 1
+        self.start = self.current = start
 
     def __repr__(self):
         return f"SerialGenerator: Start: {self.start} Current: {self.current}"
@@ -29,8 +29,8 @@ class SerialGenerator:
     def generate(self):
         """Increments current by one"""
         self.current += 1
-        return self.current
+        return self.current - 1
 
     def reset(self):
         """Resets incrementer"""
-        self.current = self.start - 1
+        self.current = self.start
